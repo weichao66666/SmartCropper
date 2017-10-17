@@ -10,9 +10,11 @@ include_directories(opencv/include
 
 add_library(opencv_imgproc STATIC IMPORTED)
 add_library(opencv_core STATIC IMPORTED)
+add_library(tbb STATIC IMPORTED)
 
 set_target_properties(opencv_imgproc PROPERTIES IMPORTED_LOCATION ${PROJECT_SOURCE_DIR}/opencv/lib/${ANDROID_ABI}/libopencv_imgproc.a)
 set_target_properties(opencv_core PROPERTIES IMPORTED_LOCATION ${PROJECT_SOURCE_DIR}/opencv/lib/${ANDROID_ABI}/libopencv_core.a)
+set_target_properties(tbb PROPERTIES IMPORTED_LOCATION ${PROJECT_SOURCE_DIR}/opencv/lib/${ANDROID_ABI}/libtbb.a)
 
 
 # Creates and names a library, sets it as either STATIC
@@ -56,6 +58,7 @@ target_link_libraries( # Specifies the target library.
                        smart_cropper
                        opencv_imgproc
                        opencv_core
+                       tbb
 
                        # Links the target library to the log library
                        # included in the NDK.
